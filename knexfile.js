@@ -1,44 +1,9 @@
+require('dotenv').config()
+const pg = require('pg')
+pg.defaults.ssl = true
+
+console.log(process.env.DATABASE_URL)
 module.exports = {
-
-  development: {
-    client: 'pg',
-    connection: {
-      database: 'app_ideas'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
-  },
-
-  staging: {
-    client: 'pg',
-    connection: {
-      database: 'app_ideas'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
-  },
-
-  production: {
-    client: 'postgresql',
-    connection: {
-      database: 'app_ideas'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
-  }
+  client: 'pg',
+  connection: process.env.DATABASE_URL
 }

@@ -4,6 +4,7 @@ const parser = require('body-parser')
 
 const ideas = require('./controllers/ideas')
 
+require('dotenv').config()
 const app = express()
 app.use(parser.urlencoded({extended: true}))
 app.use(parser.json())
